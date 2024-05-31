@@ -1,8 +1,6 @@
 package musiclibrary;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import java.util.ArrayList;
 
 public class Music implements MusicAndPlaylist{
     protected String title;
@@ -11,16 +9,23 @@ public class Music implements MusicAndPlaylist{
     protected String genre;
     protected int durationInSeconds;
     protected int releaseYear;
-    protected String filePath;
     protected String lyrics;
     protected double rating;
-    protected String composer;
     protected boolean isPlaying;
     protected String currentMusic;
     protected int numberOfLikes;
+    protected ArrayList<String> musics = new ArrayList<>();
+    
 
     public Music() {
         
+    }
+    
+    public void addMusicToArrayList(String music){
+        musics.add(music);
+        for(int i=0; i<=musics.size()-1;i++){
+            System.out.println("current music list: "+ musics.get(i));
+        }
     }
     
     @Override
@@ -37,36 +42,22 @@ public class Music implements MusicAndPlaylist{
 
     @Override
     public void like(String title) {
-        
+        numberOfLikes++;
+        System.out.println("The music is liked.");
     }
     
-    @Override
-    public void search() {
-        
-    }
-    @Override
-    public void mix() {
-    }
-
-    @Override
-    public void share() {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                
-                JFrame frame = new JFrame();
-                
-                JButton button = new JButton("Share");
-
-                
-                frame.add(button);
-
-                frame.setSize(300, 200);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
+    public void search(String music) {
+        for(String item: this.getMusics()){
+            if(item.equals(music)){
+                System.out.print("The music is listed: ");
+                System.out.println(music);
+                break;
+            }else{
+                System.out.println("The music is not found");
             }
-        });
-    }
-
+           }
+        }
+    
     @Override
     public void playAgain(String title) {
         if(isPlaying && !currentMusic.isEmpty()){
@@ -75,16 +66,7 @@ public class Music implements MusicAndPlaylist{
             System.out.println("No song is currently playing.");
         }
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     
     
@@ -136,13 +118,6 @@ public class Music implements MusicAndPlaylist{
         this.releaseYear = releaseYear;
     }
 
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
 
     public String getLyrics() {
         return lyrics;
@@ -160,13 +135,13 @@ public class Music implements MusicAndPlaylist{
         this.rating = rating;
     }
 
-    public String getComposer() {
-        return composer;
+   
+    public ArrayList<String> getMusics() {
+        return musics;
     }
 
-    public void setComposer(String composer) {
-        this.composer = composer;
+    public void setMusics(ArrayList<String> musics) {
+        this.musics = musics;
     }
 
-    
 }

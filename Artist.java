@@ -1,42 +1,44 @@
 package musiclibrary;
 
-import java.util.ArrayList;
 
 public class Artist extends Account{
     protected String genre;
     protected int numberOfFollowers;
     protected int numberOfMonthlyListener;
-    protected ArrayList<String> albums;
-    protected ArrayList<Artist> relatedArtists;
-    protected ArrayList<Music> musics;
+    public String[] albums={"Red","Lover","reputation"};
+    public String[] relatedArtists={"Post Malone","Charlie Puth","Zayn"};
+
+    public String[] musicOfArtist={"Fortnight","Down Bad","Paper Rings"};
+
     
     public Artist() {
         
     }
     
-    
-    public void topTracks(){
-        
-            System.out.println("");
-        
+   
+    public void showAlbums(){
+        for(int i =0; i<=albums.length-1;i++){
+            System.out.println(albums[i]);
+        }
+        System.out.println("There are " + albums.length + " musics in this album.");
     }
     
     public void relatedArtists() {
-        if(relatedArtists!=null && !relatedArtists.isEmpty()){
+        if(relatedArtists!=null){
             System.out.println("Related artists: ");
-            for (Artist artist : relatedArtists) {
-            System.out.println("- " + artist.getfullName());
-            }
+                for(int i =0; i<=relatedArtists.length-1;i++){
+                    System.out.println("- " + relatedArtists[i]);
+                }
         }else {
             System.out.println("No related artists found.");
         }    
     }
     
-    public int albumCount() {
-        if (getAlbums() != null) {
-            return getAlbums().size();
+    public void albumCount() {
+        if (albums!= null) {
+            System.out.print("Number of album: "+ albums.length);
         } else {
-            return 0;
+            System.out.println("there is no album.");
         }
     }
     
@@ -67,26 +69,4 @@ public class Artist extends Account{
         this.numberOfMonthlyListener = numberOfMonthlyListener;
     }
 
-    public ArrayList<String> getAlbums() {
-        return albums;
-    }
-
-    public void setAlbums(ArrayList<String> albums) {
-        this.albums = albums;
-    }
-
-    public ArrayList<Artist> getRelatedArtists() {
-        return relatedArtists;
-    }
-
-    public void setRelatedArtists(ArrayList<Artist> relatedArtists) {
-        this.relatedArtists = relatedArtists;
-    }
-
-    private String getfullName() {
-        return fullName; 
-    }
-
-    
-    
 }

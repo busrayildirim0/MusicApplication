@@ -23,6 +23,6 @@ public class Create {
         }  
     }  
     public static void main(String[] args) {  
-        createNewDatabase("Music.db");  
+        createNewDatabase("User1.db");  
     }  
 }

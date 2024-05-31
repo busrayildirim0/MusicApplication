@@ -8,7 +8,7 @@ public class Connect {
     public static void connect(){
         Connection conn = null;
         try {  
-                String url = "jdbc:sqlite:C:/sqlite/MusicLibrary.db";
+                String url = "jdbc:sqlite:C:/sqlite/User1.db";
 
                 conn = DriverManager.getConnection(url);  
               

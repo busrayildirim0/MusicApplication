@@ -8,22 +8,15 @@ import java.sql.Statement;
 public class CreateTable {
     public static void createNewTable() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:C:/sqlite/Music.db";  
+        String url = "jdbc:sqlite:C:/sqlite/User1.db";  
           
         // SQL statement for creating a new table  
-        String sql = "CREATE TABLE IF NOT EXISTS music (\n"  
-                + " title TEXT PRIMARY KEY, \n"  
-                + " artistOfMusic TEXT NOT NULL,\n"  
-                + " album TEXT NOT NULL,\n" 
-                + " genre TEXT NOT NULL,\n"
-                + " durationInSeconds INT NOT NULL,\n"
-                + " releaseYear INT NOT NULL,\n"
-                + " filePath TEXT NOT NULL,\n"
-                + " lyrics TEXT NOT NULL,\n"
-                + " rating DOUBLE NOT NULL,\n"
-                + " composer TEXT NOT NULL,\n"
-                + " isPlaying BOOLEAN NOT NULL,\n"
-                + " numberOfLikes INT NOT NULL,\n"
+        String sql = "CREATE TABLE IF NOT EXISTS user("  
+                + "     accountId INTEGER,"  
+                + "     fullName text,"  
+                + "     userName text," 
+                + "     email text,"
+                + "     password text"
                 + ");";   
           
         try{  
